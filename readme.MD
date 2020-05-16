@@ -20,6 +20,6 @@ Components are invoked via --flags.
 Default components include (navbar, navbar-searchbar, sidebar, footer, footer-big, --background-video)
 
 
-Contributors: 
-Zenahr
+### Contributors: 
+Zenahr 
 Martini
