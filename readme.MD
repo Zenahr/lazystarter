@@ -22,4 +22,5 @@ Default components include (navbar, navbar-searchbar, sidebar, footer, footer-bi
 
 ### Contributors: 
 Zenahr 
+
 Martini
