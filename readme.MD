@@ -8,7 +8,7 @@ LazyStarter is a composable, component-based scaffolding framework.
 - **
 
 # Usage
-link image here
+![image](https://user-images.githubusercontent.com/47085752/82122836-39460480-9796-11ea-9d47-5b7fade345cf.png)
 
 ### Glossary
 
