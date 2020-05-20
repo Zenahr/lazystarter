@@ -1,0 +1,7 @@
+run script:
+copies "data" dir and pastes it in the current directory but changes the name of root folder to "new-project"
+
+1. get data folder by searching current dir for a folder with the name "data"
+2. copy the contents of data folder recursively
+3. create a new folder named "new-project"
+4. paste data contents into "new-project"
