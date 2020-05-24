@@ -1,4 +1,5 @@
 import lazystarter
 
 def main():
-	lazystarter.test.testFunc()
+    import sys
+    lazystarter.test.testFunc(sys.argv)
