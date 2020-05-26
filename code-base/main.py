@@ -1,7 +1,23 @@
 import os
 
 
+# Mainloop
 def main():
-    pass
+    titleScreen()
+    askForProjectName()
+
+
+
+# Helper Functions
+# ------------------------------------------------------------------
+
+"""First screen the user will see"""
+def titleScreen():
+    print("\n\n  _                      _____ _             _            \n | |                    / ____| |           | |           \n | |     __ _ _____   _| (___ | |_ __ _ _ __| |_ ___ _ __ \n | |    / _` |_  / | | |\___ \| __/ _` | '__| __/ _ \ '__|\n | |___| (_| |/ /| |_| |____) | || (_| | |  | ||  __/ |   \n |______\__,_/___|\__, |_____/ \__\__,_|_|   \__\___|_|   \n                   __/ |                                  \n                  |___/                                   \n\n")
+
+def askForProjectName():
+    projectName = input("Project Name:")
+
+# Your Addition
 
 main()
