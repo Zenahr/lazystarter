@@ -18,18 +18,28 @@ def titleScreen():
 def askForProjectName():
     projectName = input("Project Name: ") 
     print("Creating Project...") 
-    print("Finished Creating Project") 
-    print("[Summary of Project]") 
-    print("Project Name: " + projectName) 
-    print("Project Type: Web-app") 
-    print("Project Location: " + os.getcwd())
+    if createDirectory(projectName):
+        print("Finished Creating Project") 
+        print("[Summary of Project]") 
+        print("Project Name: " + projectName) 
+        print("Project Type: Web-app") 
+        print("Project Location: " + os.getcwd())
 
 
 
 # Your Addition
 # ------------------------------------------------------------------
 
-
+def createDirectory(projectName):
+    """
+    Creates the root directory to store the web app
+    """
+    if not os.path.exists(projectName):
+        os.makedirs(projectName)
+        return True
+    else:
+        print("[ERROR] A project already exists with the name  '" + projectName + "' ")
+        return False
 
 # Code execution
 # ------------------------------------------------------------------
