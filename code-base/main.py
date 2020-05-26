@@ -18,6 +18,13 @@ def titleScreen():
 def askForProjectName():
     projectName = input("Project Name:")
 
-# Your Addition
 
+
+# Your Addition
+# ------------------------------------------------------------------
+
+
+
+# Code execution
+# ------------------------------------------------------------------
 main()
