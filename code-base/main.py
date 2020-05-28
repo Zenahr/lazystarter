@@ -30,16 +30,9 @@ def askForProjectName():
 
 # Your Addition
 # ------------------------------------------------------------------
-def createEmptyProjectDir():
-    projectName = input("Project Name: ")
-    path = os.getcwd() + "\\" + projectName
-    print("Creating Project...")
+def createEmptyProjectDir(dirName):
+    path = os.getcwd() + "\\" + dirName
     os.mkdir(path)
-    print("Finished Creating Project")
-    print("[Summary of Project]")
-    print("Project Name: " + projectName)
-    print("Project Type: Web-app")
-    print("Project Location: " + path)
 
 
 # Code execution
