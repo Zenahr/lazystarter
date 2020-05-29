@@ -36,10 +36,8 @@ def createDirectory(projectName):
     """
     if not os.path.exists(projectName):
         os.makedirs(projectName)
-        return True
     else:
         print("[ERROR] A project already exists with the name  '" + projectName + "' ")
-        return False
 
 # Code execution
 # ------------------------------------------------------------------
