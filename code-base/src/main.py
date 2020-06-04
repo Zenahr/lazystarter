@@ -4,7 +4,7 @@ import os
 # Mainloop
 def main():
     titleScreen()
-    askForProjectName()
+    createEmptyProjectDir()
 
 
 
@@ -24,6 +24,8 @@ def askForProjectName():
         print("Project Name: " + projectName) 
         print("Project Type: Web-app") 
         print("Project Location: " + os.getcwd())
+
+
 
 
 
