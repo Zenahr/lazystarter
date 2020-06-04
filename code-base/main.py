@@ -4,7 +4,7 @@ import os
 # Mainloop
 def main():
     titleScreen()
-    askForProjectName()
+    createEmptyProjectDir()
 
 
 
@@ -26,9 +26,13 @@ def askForProjectName():
 
 
 
+
+
 # Your Addition
 # ------------------------------------------------------------------
-
+def createEmptyProjectDir(dirName):
+    path = os.getcwd() + "\\" + dirName
+    os.mkdir(path)
 
 
 # Code execution
