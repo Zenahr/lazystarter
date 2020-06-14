@@ -5,7 +5,7 @@ LazyStarter is a composable, component-based scaffolding framework.
 - **Language-Agnostic:** Templates can be in your programming language of your choice
 - **Do It Once, Get It Twice:** Write your components and we take care of creating the flags for you!
 - **Component-Based**
-- **
+-
 
 # Usage
 ![image](https://user-images.githubusercontent.com/47085752/82122836-39460480-9796-11ea-9d47-5b7fade345cf.png)
