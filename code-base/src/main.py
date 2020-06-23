@@ -1,20 +1,19 @@
 import os
 import click
 
-projTypes = ["basic", "web", "react", "angular", "gatsby"]
+project_types = ["basic", "web", "react", "angular", "gatsby"]
 
 
 # Mainloop
 @click.command()
 @click.argument('input')
-@click.option('--type', '-t', 'pType')
+@click.option('--type', '-t', 'project_type')
 @click.option('--name', '-n', 'name')
-def main(input, pType, name): 
+def main(input, project_type, name): 
     input = input.lower()
-    if input == "create" and checkProjType(pType.lower()):
-        """Check for project types (basic, react, web, etc... here)"""
-        if(pType == "basic"):
-            basicProject(name)
+    if input == "create" and check_project_type(project_type.lower()):
+        if(project_type == "basic"):
+            basic_project(name)
     elif input == "prompt":
         titleScreen()
         askForProjectName()
@@ -33,7 +32,7 @@ def titleScreen():
 def askForProjectName():
     projectName = input("Project Name: ") 
     print("Creating Project...") 
-    if basicProject(projectName):
+    if basic_project(projectName):
         print("Finished Creating Project") 
         print("[Summary of Project]") 
         print("Project Name: " + projectName) 
@@ -55,17 +54,19 @@ def createDirectory(projectName):
         print("[ERROR] A project already exists with the name  '" + projectName + "' ")
 
 
-def basicProject(projectName):
-    if not os.path.exists(projectName):
-        os.makedirs(projectName)
-        os.chdir(projectName)
+def basic_project(project_name):
+    if not os.path.exists(project_name):
+        os.makedirs(project_name)
+        os.chdir(project_name)
         open('.gitignore', 'a').close()
+        os.makedirs('src')
     else:
         print("[ERROR] A project already exists with the name  '" +
-              projectName + "' ")
+              project_name + "' ")
 
-def checkProjType(pType):
-    if pType.lower() in projTypes:
+def check_project_type(project_type):
+    """Check for project types (basic, react, web, etc... here)"""
+    if project_type.lower() in project_types:
         return True
     return False
 
