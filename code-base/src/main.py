@@ -1,9 +1,6 @@
 import os
 import click
 
-project_types = ["basic", "web", "react", "angular", "gatsby"]
-
-
 # Mainloop
 @click.command()
 @click.argument('input')
@@ -11,48 +8,42 @@ project_types = ["basic", "web", "react", "angular", "gatsby"]
 @click.option('--name', '-n', 'name')
 def main(input, project_type, name): 
     input = input.lower()
-    if input == "create" and check_project_type(project_type.lower()):
+    project_type = project_type.lower()
+    if input == "create" and check_project_type(project_type):
         if(project_type == "basic"):
             basic_project(name)
     elif input == "prompt":
-        titleScreen()
-        askForProjectName()
+        title_screen()
+        ask_for_project_name()
     else:
         print("Invalid flags!")
-
 
 
 # Helper Functions
 # ------------------------------------------------------------------
 
 """First screen the user will see"""
-def titleScreen():
+def title_screen():
     print("\n\n  _                      _____ _             _            \n | |                    / ____| |           | |           \n | |     __ _ _____   _| (___ | |_ __ _ _ __| |_ ___ _ __ \n | |    / _` |_  / | | |\___ \| __/ _` | '__| __/ _ \ '__|\n | |___| (_| |/ /| |_| |____) | || (_| | |  | ||  __/ |   \n |______\__,_/___|\__, |_____/ \__\__,_|_|   \__\___|_|   \n                   __/ |                                  \n                  |___/                                   \n\n")
 
-def askForProjectName():
-    projectName = input("Project Name: ") 
+def ask_for_project_name():
+    project_name = input("Project Name: ") 
     print("Creating Project...") 
-    if basic_project(projectName):
+    if basic_project(project_name):
         print("Finished Creating Project") 
         print("[Summary of Project]") 
-        print("Project Name: " + projectName) 
+        print("Project Name: " + project_name) 
         print("Project Type: Web-app") 
         print("Project Location: " + os.getcwd())
 
-
-
-# Your Addition
-# ------------------------------------------------------------------
-
-def createDirectory(projectName):
+def createDirectory(project_name):
     """
     Creates the root directory to store the web app
     """
-    if not os.path.exists(projectName):
-        os.makedirs(projectName)
+    if not os.path.exists(project_name):
+        os.makedirs(project_name)
     else:
-        print("[ERROR] A project already exists with the name  '" + projectName + "' ")
-
+        print("[ERROR] A project already exists with the name  '" + project_name + "' ")
 
 def basic_project(project_name):
     if not os.path.exists(project_name):
@@ -66,7 +57,9 @@ def basic_project(project_name):
 
 def check_project_type(project_type):
     """Check for project types (basic, react, web, etc... here)"""
-    if project_type.lower() in project_types:
+    available_project_types = ["basic", "web", "react", "angular", "gatsby"]
+    project_type = project_type.lower()
+    if project_type in available_project_types:
         return True
     return False
 
