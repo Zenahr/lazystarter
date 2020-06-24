@@ -19,6 +19,19 @@ Components: components are children of Bases. A Component must be a child of at 
 Components are invoked via --flags.
 Default components include (navbar, navbar-searchbar, sidebar, footer, footer-big, --background-video)
 
+## Onboarding
+
+To make sure everything runs smoothly and we don't have to get a super headache with git managment I would like every contributor to do a full (mock) pull request
+
+### Steps:
+- fork this repository
+- create a new branch. Prefereably just call it your username. (i.e. `git checkout -b Zenahr`)
+- commit an empty commit like so: `commit -m "my first pull request. Yay!" --allow-empty`
+- create a pull request via github
+- wait for the merge
+
+Congrats! You're ready to work on this repo now.
+
 ## Contribution Guide
 
 Version: 1.0
