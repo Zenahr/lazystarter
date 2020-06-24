@@ -1,10 +1,12 @@
 import click
 import os
-from gitignore import Gitignore
-project_types = ["basic", "web", "react", "angular", "gatsby", "python"]
+from .gitignore import Gitignore
+project_types = ["basic", "web", "react", "angular", "gatsby", "python"] # hardcoded project types
 
+# Changed the ascii text to be more concise.
 
 def print_title():
+    """Prints the title to stdout"""
     click.echo(r"""
   _      _   _____   _____ _____ _   ___ _____ ___ ___ 
  | |    /_\ |_  \ \ / / __|_   _/_\ | _ |_   _| __| _ \
@@ -15,22 +17,14 @@ def print_title():
 """)
 
 
+
 def check_project_type(project_type: str) -> bool:
     if project_type.lower() in project_types:
         return True
     return False
 
-
-def create_directory(project_name: str):
-    """Creates the root directory to store the web app"""
-    if not os.path.exists(project_name):
-        os.makedirs(project_name)
-    else:
-        click.echo(
-            "[ERROR] A project already exists with the name  '" + project_name + "' ")
-
-
 def basic_project(project_name: str, gitignores: list) -> bool:
+    """Function to create the `basic` project."""
     g = Gitignore()
     if not os.path.exists(project_name):
         os.makedirs(project_name)
@@ -46,6 +40,7 @@ def basic_project(project_name: str, gitignores: list) -> bool:
 
 
 def generate_project(name: str = '', gitignore_string: str = ''):
+    """Function to provide prompts and printing progress."""
     if name == '':
         project_name = input("Project Name: ")
 
