@@ -1,10 +1,24 @@
 import os
+import click
+
+project_types = ["basic", "web", "react", "angular", "gatsby"]
 
 
 # Mainloop
-def main():
-    titleScreen()
-    askForProjectName()
+@click.command()
+@click.argument('input')
+@click.option('--type', '-t', 'project_type')
+@click.option('--name', '-n', 'name')
+def main(input, project_type, name): 
+    input = input.lower()
+    if input == "create" and check_project_type(project_type.lower()):
+        if(project_type == "basic"):
+            basic_project(name)
+    elif input == "prompt":
+        titleScreen()
+        askForProjectName()
+    else:
+        print("Invalid flags!")
 
 
 
@@ -18,7 +32,7 @@ def titleScreen():
 def askForProjectName():
     projectName = input("Project Name: ") 
     print("Creating Project...") 
-    if createDirectory(projectName):
+    if basic_project(projectName):
         print("Finished Creating Project") 
         print("[Summary of Project]") 
         print("Project Name: " + projectName) 
@@ -38,6 +52,23 @@ def createDirectory(projectName):
         os.makedirs(projectName)
     else:
         print("[ERROR] A project already exists with the name  '" + projectName + "' ")
+
+
+def basic_project(project_name):
+    if not os.path.exists(project_name):
+        os.makedirs(project_name)
+        os.chdir(project_name)
+        open('.gitignore', 'a').close()
+        os.makedirs('src')
+    else:
+        print("[ERROR] A project already exists with the name  '" +
+              project_name + "' ")
+
+def check_project_type(project_type):
+    """Check for project types (basic, react, web, etc... here)"""
+    if project_type.lower() in project_types:
+        return True
+    return False
 
 # Code execution
 # ------------------------------------------------------------------
