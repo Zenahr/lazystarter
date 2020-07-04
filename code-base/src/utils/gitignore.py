@@ -13,12 +13,14 @@ def get_gitignore_path() -> str:
 
 
 class Gitignore:
+    """ """
     def __init__(self):
         self.gitignore_path = get_gitignore_path()
 
     def update(self) -> None:
         """A function to update the gitignore submodule.
         (Can be found here: https://github.com/github/gitignore)
+
 
         """
         repo = git.Repo(self.gitignore_path)
@@ -28,8 +30,12 @@ class Gitignore:
             click.echo('gitignores have been updated.')
 
     def append_to_file(self, file_path: str, content: str) -> None:
-        """Function to append contents of gitignore to an 
+        """Function to append contents of gitignore to an
         already created gitignore.
+
+        :param file_path: str: 
+        :param content: str: 
+
         """
         f = open(file_path, 'a')
         f.write(content)
@@ -37,8 +43,11 @@ class Gitignore:
         f.close
 
     def gitignore_to_file(self, name: str) -> None:
-        """Helper function to find a matching .gitignore specified `name`; 
+        """Helper function to find a matching .gitignore specified `name`;
         then make a .gitignore and copy its contents to the newly created file
+
+        :param name: str: 
+
         """
         for root, dirs, files in os.walk(self.gitignore_path):
             for f in files:
