@@ -13,7 +13,7 @@ def get_gitignore_path() -> str:
 
 
 class Gitignore:
-    """ """
+    """Initialize, modify and update gitignore."""
     def __init__(self):
         self.gitignore_path = get_gitignore_path()
 
@@ -33,9 +33,9 @@ class Gitignore:
         """Function to append contents of gitignore to an
         already created gitignore.
 
-        :param file_path: str: 
-        :param content: str: 
-
+        :param file_path: str:
+        :param content: str:
+        
         """
         f = open(file_path, 'a')
         f.write(content)
@@ -46,8 +46,8 @@ class Gitignore:
         """Helper function to find a matching .gitignore specified `name`;
         then make a .gitignore and copy its contents to the newly created file
 
-        :param name: str: 
-
+        :param name: str:
+         
         """
         for root, dirs, files in os.walk(self.gitignore_path):
             for f in files:
