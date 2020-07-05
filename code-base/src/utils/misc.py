@@ -19,12 +19,22 @@ def print_title():
 
 
 def check_project_type(project_type: str) -> bool:
+    """
+
+    :param project_type: str: 
+
+    """
     if project_type.lower() in project_types:
         return True
     return False
 
 def basic_project(project_name: str, gitignores: list) -> bool:
-    """Function to create the `basic` project."""
+    """Function to create the `basic` project.
+
+    :param project_name: str: 
+    :param gitignores: list: 
+
+    """
     g = Gitignore()
     if not os.path.exists(project_name):
         os.makedirs(project_name)
@@ -40,7 +50,12 @@ def basic_project(project_name: str, gitignores: list) -> bool:
 
 
 def generate_project(name: str = '', gitignore_string: str = ''):
-    """Function to provide prompts and printing progress."""
+    """Function to provide prompts and printing progress.
+
+    :param name: str:  (Default value = '')
+    :param gitignore_string: str:  (Default value = '')
+
+    """
     if name == '':
         project_name = input("Project Name: ")
 
