@@ -12,5 +12,5 @@ class Readme:
     def write(self):
         newRM = MdUtils(file_name='README', title='README')
         newRM.new_header(level=1, title='Overview')
-        newRM.new_paragraph("This is a project made using [lazystarter](https://github.com/Zenahr/lazystarter), the static site generator for people who can't be bothered.")
+        newRM.new_paragraph("Welcome to " + self.name + ", a " + self.type + " project made using [lazystarter](https://github.com/Zenahr/lazystarter), the static site generator for people who can't be bothered.")
         newRM.create_md_file()
