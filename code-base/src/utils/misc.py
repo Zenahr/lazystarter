@@ -1,7 +1,6 @@
 import click
 import os
 from .gitignore import Gitignore
-from .readme import Readme
 project_types = ["basic", "web", "react", "angular", "gatsby", "python"] # hardcoded project types
 
 # Changed the ascii text to be more concise.
@@ -42,9 +41,17 @@ def basic_project(project_name: str, gitignores: list) -> bool:
         os.chdir(project_name)
         for gitignore in gitignores:
             g.gitignore_to_file(gitignore)
-        os.makedirs('src')
-        r = Readme(project_name, 'basic', 'basic')
-        r.write()
+        touch("index.html")
+        os.makedirs("html")
+        os.makedirs("js")
+        os.makedirs("css")
+        os.chdir("js")
+        touch("main.js")
+        os.chdir("..")
+        os.chdir("css")
+        touch("main.css")
+        os.chdir("..")
+        generate_readme(project_name)
         return True
     else:
         click.echo("[ERROR] A project already exists with the name  '" +
@@ -83,5 +90,14 @@ def generate_project(name: str = '', gitignore_string: str = ''):
         click.echo("Project Type: Web-app")
         click.echo("Project Location: " + os.getcwd())
 
-
+def generate_readme(project_name):
+    with open("README.md", 'a') as f:
+        f.write("# " + project_name)
+        f.write("This is a basic web project generated with [LazyStarter](https://github.com/Zenahr/lazystarter).")
+        f.write("Customize this readme with [this handy syntax guide](https://www.markdownguide.org/basic-syntax/)!")
+        f.close()
         
+
+def touch(fname, times=None):
+    with open(fname, 'a'):
+        os.utime(fname, times)
