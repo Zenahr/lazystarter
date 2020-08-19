@@ -41,17 +41,7 @@ def basic_project(project_name: str, gitignores: list) -> bool:
         os.chdir(project_name)
         for gitignore in gitignores:
             g.gitignore_to_file(gitignore)
-        touch("index.html")
-        os.makedirs("html")
-        os.makedirs("js")
-        os.makedirs("css")
-        os.chdir("js")
-        touch("main.js")
-        os.chdir("..")
-        os.chdir("css")
-        touch("main.css")
-        os.chdir("..")
-        generate_readme(project_name)
+        generate_files(project_name)
         return True
     else:
         click.echo("[ERROR] A project already exists with the name  '" +
@@ -89,6 +79,19 @@ def generate_project(name: str = '', gitignore_string: str = ''):
         click.echo("Project Name: " + project_name)
         click.echo("Project Type: Web-app")
         click.echo("Project Location: " + os.getcwd())
+        
+def generate_files(project_name):
+    touch("index.html")
+    os.makedirs("html")
+    os.makedirs("js")
+    os.makedirs("css")
+    os.chdir("js")
+    touch("main.js")
+    os.chdir("..")
+    os.chdir("css")
+    touch("main.css")
+    os.chdir("..")
+    generate_readme(project_name)
 
 def generate_readme(project_name):
     with open("README.md", 'a') as f:
