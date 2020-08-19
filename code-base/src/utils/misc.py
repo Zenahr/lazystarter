@@ -41,7 +41,7 @@ def basic_project(project_name: str, gitignores: list) -> bool:
         os.chdir(project_name)
         for gitignore in gitignores:
             g.gitignore_to_file(gitignore)
-        generate_files(project_name)
+        generate_files_basic(project_name)
         return True
     else:
         click.echo("[ERROR] A project already exists with the name  '" +
@@ -80,7 +80,7 @@ def generate_project(name: str = '', gitignore_string: str = ''):
         click.echo("Project Type: Web-app")
         click.echo("Project Location: " + os.getcwd())
         
-def generate_files(project_name):
+def generate_files_basic(project_name):
     touch("index.html")
     os.makedirs("html")
     os.makedirs("js")
