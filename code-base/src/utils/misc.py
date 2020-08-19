@@ -95,8 +95,8 @@ def generate_files(project_name):
 
 def generate_readme(project_name):
     with open("README.md", 'a') as f:
-        f.write("# " + project_name)
-        f.write("This is a basic web project generated with [LazyStarter](https://github.com/Zenahr/lazystarter).")
+        f.write("# " + project_name + "\n\n")
+        f.write("This is a basic web project generated with [LazyStarter](https://github.com/Zenahr/lazystarter).\n\n")
         f.write("Customize this readme with [this handy syntax guide](https://www.markdownguide.org/basic-syntax/)!")
         f.close()
         
